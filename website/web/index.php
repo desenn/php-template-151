@@ -1,21 +1,47 @@
 <?php
-
-error_reporting(E_ALL);
+session_start();
 
 require_once("../vendor/autoload.php");
-$tmpl = new desenn\SimpleTemplateEngine(__DIR__ . "/../templates/");
+
+$factory = desenn\Factory::createFromIniFile(__DIR__ . "/../config.ini");
+
+
 
 switch($_SERVER["REQUEST_URI"]) {
 	case "/":
-		(new desenn\Controller\IndexController($tmpl))->homepage();
+		$cnt = $factory->getIndexController();
+		$cnt->homepage();
 		break;
 	case "/login":
-		(new desenn\Controller\LoginController($tmpl))->showLogin();
+		$cnt = $factory->getLoginController();
+		if($_SERVER['REQUEST_METHOD'] === 'GET'){
+			$cnt->showLogin();
+		}
+		else{
+			$cnt->Login($_POST);
+		}
+		break;
+	case "/logout":
+		$cnt = $factory->getLoginController();
+		$cnt->Logout();
+		break;
+	case "/register":
+		$cnt = $factory->getRegisterController();
+		if($_SERVER['REQUEST_METHOD'] === 'GET'){
+			$cnt->showRegister();
+		}
+		else{
+			$cnt->Register($_POST);
+		}
+		break;
+	case "/change-pw":
+		$cnt = $factory->getLoginController();
+		
 		break;
 	default:
 		$matches = [];
 		if(preg_match("|^/hello/(.+)$|", $_SERVER["REQUEST_URI"], $matches)) {
-			(new desenn\Controller\IndexController($tmpl))->greet($matches[1]);
+			$factory->getIndexController()->greet($matches[1]);
 			break;
 		}
 		echo "Not Found";

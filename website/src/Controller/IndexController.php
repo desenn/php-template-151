@@ -20,7 +20,8 @@ class IndexController
   }
 
   public function homepage() {
-    echo "INDEX";
+    echo $this->template->render("home.html.php");
+ //   echo $_SESSION['email'];
   }
 
   public function greet($name) {

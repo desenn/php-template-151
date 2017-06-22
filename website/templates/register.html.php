@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>My Login Page</title>
+	<title>My Register Page</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -9,19 +9,19 @@
 <?php
 require_once("../web/header.php");
 ?>
-	<h3>Login</h3>
+	<h3>Register</h3>
 	<form method="POST">
+		<p><?=  (isset($msg)) ? $msg: "" ?></p>
 		<label>
 			Email:
-			<input type="email" name="email" value="<?= (isset($email)) ? $email: "" ?>"/>
+			<input type="email" name="email" />
 		</label>
 		<label>
 			Passwort:
 			<input type="password" name="pw" />
 		</label>
-		<input type="submit" name="login" value="Login" />
+		<input type="submit" name="register" value="Register" />
 	
 	</form>
-	<a href="/change-pw">Forgot password</a>
 </body>
 </html>
