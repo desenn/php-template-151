@@ -13,8 +13,8 @@
 require_once("../web/header.php");
 ?>
 <body>
-Auf dieser Seite können sie nach Serien und Schauspielern suchen.
-Wenn sie sich Registriert haben können sie aus Serien zu ihren Favoriten hinzufügen.
+On this page you can search for series and actors.
+When you're registerd you can add series to your favourites.
 </body>
 
 </html>

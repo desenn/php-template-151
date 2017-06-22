@@ -20,7 +20,7 @@ require_once("../web/header.php");
         New Password:
         <input type="password" name="pw" />
     </label>
-    <input type="submit" name="login" value="Login" />
+    <input type="submit" name="forgotPW" value="forgotPW" />
 
 </form>
 </body>

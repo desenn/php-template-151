@@ -41,6 +41,22 @@ class Factory{
 				);
 	}
 	
+	public function getSearchController(){
+		return new Controller\SearchController(
+				$this->getTemplateEngine(),
+				$this->getSearchService()
+	
+				);
+	}
+	
+	public function getDataController(){
+		return new Controller\DataController(
+				$this->getTemplateEngine(),
+				$this->getDataService()
+	
+				);
+	}
+	
 	public function getPdo(){
 		return new \PDO(
 		"mysql:host=mariadb;dbname=app;charset=utf8",
@@ -64,6 +80,14 @@ class Factory{
 	
 	public function getRegisterService(){
 		return new Service\Register\RegisterPdoService($this->getPdo());
+	}
+	
+	public function getSearchService(){
+		return new Service\Search\SearchPdoService($this->getPdo());
+	}
+	
+	public function getDataService(){
+		return new Service\Data\DataPdoService($this->getPdo());
 	}
 }
 

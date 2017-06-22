@@ -5,10 +5,11 @@
 
     <div id="nav">
         <a class="nav_link" href="/">Home</a>
-        <a class="nav_link" href=""></a>
+        <a class="nav_link" href="/search-actor">Search Actor</a>
+        <a class="nav_link" href="/search-series">Search Series</a>
         <?php
             if($_SESSION["admin"] === 1){
-                echo '<a class="nav_link" href="">Add</a>';
+                echo '<a class="nav_link" href="/add-items">Add</a>';
             }
         ?>
         <?php
@@ -19,8 +20,11 @@
             echo '<a class="nav_link" href="/login">Login</a>';
             echo '<a class="nav_link" href="/register">Register</a>';
         }
+        if(isset($_SESSION["email"])){
+            echo '<a class="nav_link" href="/account">Account</a>';
+        }
         ?>
 
-        <a class="nav_link" href="">Account</a>
+
     </div>
 </div>
