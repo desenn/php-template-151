@@ -15,6 +15,17 @@ require_once("../web/header.php");
 <body>
 On this page you can search for series and actors.
 When you're registerd you can add series to your favourites.
+<br>
+<?php 
+
+$salt = "deborah.senn.89@outlook.com";
+
+$saltHash = hash('sha256', "Passw0rd!", $salt);
+
+
+
+echo $saltHash;
+?>
 </body>
 
 </html>

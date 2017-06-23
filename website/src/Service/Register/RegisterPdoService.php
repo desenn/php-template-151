@@ -12,9 +12,13 @@ class RegisterPdoService implements RegisterService
 	
 	public function register($username, $password)
 	{
+		$salt = $username;
+		
+		$saltHash = hash('sha256', $password, $salt);
+		
 		$stmt = $this->pdo->prepare("INSERT INTO user (email, password) VALUES(?, ?)");
 		$stmt->bindValue(1, $username);
-		$stmt->bindValue(2, $password);
+		$stmt->bindValue(2, $saltHash);
 		$stmt->execute();
 			
 		$_SESSION["email"] = $username;

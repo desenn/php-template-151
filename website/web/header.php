@@ -7,10 +7,12 @@
         <a class="nav_link" href="/">Home</a>
         <a class="nav_link" href="/search">Search</a>
         <?php
+        if(isset($_SESSION["email"])){
             if($_SESSION["admin"] === 1){
                 echo '<a class="nav_link" href="/add-series">Add Series</a>';
                 echo '<a class="nav_link" href="/add-actors">Add Actors</a>';
             }
+        }
         ?>
         <?php
         if(isset($_SESSION["email"])){
