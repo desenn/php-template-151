@@ -13,8 +13,24 @@
 require_once("../web/header.php");
 ?>
 <body>
-Auf dieser Seite können sie nach Serien und Schauspielern suchen.
-Wenn sie sich Registriert haben können sie aus Serien zu ihren Favoriten hinzufügen.
+<h3>Search series</h3>
+	<form method="POST">
+		<label>
+			<input type="text" name="search_s"/>
+		</label>
+		
+		<input type="submit" name="serach" value="SearchSeries" />
+	
+	</form>
+	
+<h3>Search actors</h3>
+	<form method="POST">
+		<label>
+			<input type="search" name="search_a"/>
+		</label>
+		<input type="submit" name="search" value="SearchActor" />
+	
+	</form>
 </body>
 
 </html>

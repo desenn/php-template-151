@@ -57,6 +57,22 @@ class Factory{
 				);
 	}
 	
+	public function getAddController(){
+		return new Controller\AddController(
+				$this->getTemplateEngine(),
+				$this->getAddService()
+	
+				);
+	}
+	
+	public function getAccountController(){
+		return new Controller\AccountController(
+				$this->getTemplateEngine(),
+				$this->getAccountService()
+	
+				);
+	}
+	
 	public function getPdo(){
 		return new \PDO(
 		"mysql:host=mariadb;dbname=app;charset=utf8",
@@ -88,6 +104,14 @@ class Factory{
 	
 	public function getDataService(){
 		return new Service\Data\DataPdoService($this->getPdo());
+	}
+	
+	public function getAddService(){
+		return new Service\Add\AddPdoService($this->getPdo());
+	}
+	
+	public function getAccountService(){
+		return new Service\Account\AccountPdoService($this->getPdo());
 	}
 }
 

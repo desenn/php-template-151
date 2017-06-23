@@ -38,5 +38,16 @@ class SearchController
 		}
 
 	}*/
+	
+	public function SearchSeries(){
+		
+	}
+	
+	public function SearchActor(){
+	
+	}
+
 }
+
+
 

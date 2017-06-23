@@ -38,27 +38,22 @@ switch($_SERVER["REQUEST_URI"]) {
 			$cnt = $factory->getLoginController();
 			$cnt->showForgotPW();
 			break;
-		case "/search-actor":
-			echo 'actor search';
+		case "/search":
 			$cnt = $factory->getSearchController();
-			//$cnt->showForgotPW();
-			break;
-		case "/search-series":
-			echo 'series search';
-			$cnt = $factory->getSearchController();
-			//$cnt->showForgotPW();
+			$cnt->showSearch();
 			break;
 		case "/account":
-			echo 'user account';
-			//favourites controller?
-			//$cnt = $factory->getLoginController();
-			//$cnt->showForgotPW();
+			$cnt = $factory->getAccountController();
+			$cnt->showAccount();
 			break;
-		case "/add-items":
-			echo 'user add actors and series';
-			//$cnt = $factory->getLoginController();
-			//$cnt->showForgotPW();
+		case "/add-series":
+			$cnt = $factory->getAddController();
+			$cnt->showAddSeries();
 			break;
+			case "/add-actors":
+				$cnt = $factory->getAddController();
+				$cnt->showAddActors();
+				break;
 		default:
 			$matches = [];
 			if(preg_match("|^/hello/(.+)$|", $_SERVER["REQUEST_URI"], $matches)) {

@@ -1,15 +1,15 @@
 <div id="header">
-    <div style="height: 90%;">
+    <div>
         <h1>Serien-Verwaltung</h1>
     </div>
 
     <div id="nav">
         <a class="nav_link" href="/">Home</a>
-        <a class="nav_link" href="/search-actor">Search Actor</a>
-        <a class="nav_link" href="/search-series">Search Series</a>
+        <a class="nav_link" href="/search">Search</a>
         <?php
             if($_SESSION["admin"] === 1){
-                echo '<a class="nav_link" href="/add-items">Add</a>';
+                echo '<a class="nav_link" href="/add-series">Add Series</a>';
+                echo '<a class="nav_link" href="/add-actors">Add Actors</a>';
             }
         ?>
         <?php
