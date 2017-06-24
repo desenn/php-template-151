@@ -26,6 +26,10 @@ class AccountController
 	public function showAccount() {
 		echo $this->template->render("account.html.php");
 	}
+	
+	public function addFavourite($id) {
+		$this->accountService->addFavourites($id);
+	}
 
 	/*public function Add(array $data) {
 		if(array_key_exists("email", $data)){

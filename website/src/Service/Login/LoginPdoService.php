@@ -22,16 +22,17 @@ class LoginPdoService implements LoginService
 		$stmt->bindValue(1, $username);
 		$stmt->bindValue(2, $hash);
 		$stmt->execute();
-		 
-		if(false){
-			$_SESSION["admin"] = 1;
-		}
-		else{
-			$_SESSION["admin"] = 1;
-		}
 		
 		if($stmt->rowCount() === 1){
 			session_regenerate_id();
+			$user = $stmt->fetchObject();
+			print_r($user->is_admin);
+			$_SESSION["is_admin"] = $user->is_admin;
+		
+			print_r($_SESSION["is_admin"]);die();
+			
+			
+			$_SESSION["user_id"] = $user->id;
 			$_SESSION["email"] = $username;
 			return true;
 		}
@@ -54,7 +55,21 @@ class LoginPdoService implements LoginService
 		$stmt->execute();
 			
 		session_regenerate_id();
-			$_SESSION["email"] = $username;
+		$user = $stmt->fetchAll();
+		
+		if($user[0]["is_admin"] === 1){
+			$_SESSION["admin"] = 1;
+		}
+		else{
+			$_SESSION["admin"] = 0;
+		}
+		
+		
+		
+		
+		
+		$_SESSION["email"] = $username;
+		$_SESSION["user_id"] = $user[0]["id"];
 	
 	}
 }

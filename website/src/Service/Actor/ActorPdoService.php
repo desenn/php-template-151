@@ -41,9 +41,10 @@ class ActorPdoService implements ActorService
 		$stmt->bindValue(1, $lastname);
 		$stmt->bindValue(2, $firstname);
 		$stmt->execute();
-		$actors = $stmt->fetchColumn();
+		$actors = $stmt->fetchAll();
 	
 		return $actors;
+		
 	
 	}
 }

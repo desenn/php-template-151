@@ -49,7 +49,8 @@ switch($_SERVER["REQUEST_URI"]) {
 				$cnt->showSearch();
 			}else{
 				if($_POST['favourite'] === "Add to favourites"){
-					$cnt = $factory->getAccountController();
+					$cnt2 = $factory->getAccountController();
+					$cnt2->addFavourite($_POST["id"]);
 				}else {
 					$cnt->SearchSeries($_POST);
 				}

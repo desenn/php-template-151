@@ -9,7 +9,10 @@
 <?php
 require_once("../web/header.php");
 ?>
-	<h3>Actor</h3>
+	<h3><?=$data[0]['firstname'] . ' ' . $data[0]['lastname'] ?></h3>
+		
+	
+	<b>Birthdate:</b> <?=$data[0]['birthdate'] ?> <br>
 	<form method="POST">
 		<!-- serien verlinken
 		daten anzeigen -->

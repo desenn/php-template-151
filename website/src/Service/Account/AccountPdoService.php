@@ -31,12 +31,12 @@ class AccountPdoService implements AccountService
 	
 	}
 	
-	public function getFavorites($id)
+	public function addFavourites($id)
 	{
-		$stmt = $this->pdo->prepare("SELECT * FROM favourites WHERE fk_user=?");
-		$stmt->bindValue(1, $username);
+		$stmt = $this->pdo->prepare("INSERT INTO favourites (fk_user, fk_series) VALUES (?, ?)");
+		$stmt->bindValue(1, $_SESSION["user_id"]);
+		$stmt->bindValue(2, $id);
 		$stmt->execute();
-		$favourites = $stmt->fetchColumn();
 	
 	
 	}
