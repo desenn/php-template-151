@@ -19,7 +19,7 @@ require_once("../web/header.php");
 		<br>
 		Summary: <input type="textarea" name="summary">
 		<br>
-		Genere: <input type="text" name="genere">
+		Genere: <input type="text" name="genre">
 		<br>
 		<input type="submit" name="addSeries" value="AddSeries" />
 	</form>

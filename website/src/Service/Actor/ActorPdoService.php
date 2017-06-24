@@ -14,10 +14,10 @@ class ActorPdoService implements ActorService
 
 	public function addActor($lastname, $firstname, $birthday)
 	{
-		$stmt = $this->pdo->prepare("INSERT INTO actor (lastname, firstname, birthdate) VALUES (?, ?, NULL)");
+		$stmt = $this->pdo->prepare("INSERT INTO actor (lastname, firstname, birthdate) VALUES (?, ?, ?)");
 		$stmt->bindValue(1, $lastname);
 		$stmt->bindValue(2, $firstname);
-		//$stmt->bindValue(3, $birthday);
+		$stmt->bindValue(3, $birthday);
 		$stmt->execute();
 		
 
@@ -29,7 +29,7 @@ class ActorPdoService implements ActorService
 		$stmt = $this->pdo->prepare("SELECT * FROM actor WHERE id=?");
 		$stmt->bindValue(1, $id);
 		$stmt->execute();
-		$actors = $stmt->fetchColumn();
+		$actors = $stmt->fetchAll();
 	
 		return $actors;
 	

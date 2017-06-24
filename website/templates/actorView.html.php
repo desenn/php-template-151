@@ -14,8 +14,7 @@ require_once("../web/header.php");
 	
 	<b>Birthdate:</b> <?=$data[0]['birthdate'] ?> <br>
 	<form method="POST">
-		<!-- serien verlinken
-		daten anzeigen -->
+		<!-- serien verlinken -->
 	</form>
 </body>
 </html>

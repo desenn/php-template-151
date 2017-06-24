@@ -15,7 +15,7 @@ require_once("../web/header.php");
 		<br>
 		Firstname: <input type="text" name="firstname">
 		<br>
-		Birthdate: <input type="date" name="birthday">
+		Birthdate: <input type="text" placeholder="jjjj-mm-dd" name="birthday">
 		<br>
 		<input type="submit" name="addActors" value="AddActors" />
 	</form>

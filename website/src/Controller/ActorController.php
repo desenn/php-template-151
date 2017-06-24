@@ -43,10 +43,9 @@ class ActorController
 	}
 	
 	public function displayActors($id) {
-		echo $this->template->render("addActors.html.php");
-		$actor = $this->actorService->getSeries($id);
-		echo $this->template->render("seriesView.html.php",[
-				"data" => $series
+		$actor = $this->actorService->getActor($id);
+		echo $this->template->render("actorView.html.php",[
+				"data" => $actor
 		]);
 	}
 	
@@ -69,7 +68,7 @@ class ActorController
 	
 	
 	public function SearchActor(array $data){
-		$actor = $this->actorService->searchActor($data['search_a_f'], $data['search_a_l']);
+		$actor = $this->actorService->searchActor($data['search_a_l'], $data['search_a_f']);
 		$this->displayActors($actor[0]['id']);
 	
 	
