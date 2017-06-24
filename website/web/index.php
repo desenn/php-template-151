@@ -45,12 +45,13 @@ switch($_SERVER["REQUEST_URI"]) {
 			break;
 		case "/search-series":
 			$cnt = $factory->getSeriesController();
+			$cnt2 = $factory->getAccountController();
 			if($_SERVER['REQUEST_METHOD'] === 'GET'){
 				$cnt->showSearch();
 			}else{
 				if($_POST['favourite'] === "Add to favourites"){
-					$cnt2 = $factory->getAccountController();
 					$cnt2->addFavourite($_POST["id"]);
+					$cnt->showSearch();
 				}else {
 					$cnt->SearchSeries($_POST);
 				}

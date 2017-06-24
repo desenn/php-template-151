@@ -27,21 +27,11 @@ class RegisterPdoService implements RegisterService
 		
 		
 		session_regenerate_id();
-		$user = $stmt->fetchAll();
+		$user = $stmt->fetchObject();
+		$_SESSION["is_admin"] = $user->is_admin;
 		
-		if($user[0]["is_admin"] === 1){
-			$_SESSION["admin"] = 1;
-		}
-		else{
-			$_SESSION["admin"] = 0;
-		}
-		
-		
-		
-		
-		
+		$_SESSION["user_id"] = $user->id;
 		$_SESSION["email"] = $username;
-		$_SESSION["user_id"] = $user[0]["id"];
 
 	}
 		
