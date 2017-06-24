@@ -10,13 +10,16 @@
 		?>
 		<h3>Add Actor</h3>
 		<form method="POST">
-			Lastname: <input type="text" name="lastname">
+			<p>Lastname:</p> 
+			<input type="text" name="lastname">
 			<br>
-			Firstname: <input type="text" name="firstname">
+			<p>Firstname:</p> 
+			<input type="text" name="firstname">
 			<br>
-			Birthdate: <input type="text" placeholder="jjjj-mm-dd" name="birthday">
-			<br>
-			<input type="submit" name="addActors" value="AddActors" />
+			<p>Birthdate:</p> 
+			<input type="text" placeholder="jjjj-mm-dd" name="birthday">
+			<br><br>
+			<input type="submit" name="addActors" value="Add Actor" />
 		</form>
 	</body>
 </html>

@@ -10,17 +10,22 @@
 		?>
 		<h3>Add Series</h3>
 		<form method="POST">
-			Name: <input type="text" name="name">
+			<p>Name:</p> 
+			<input type="text" name="name">
 			<br>
-			Number of seasons: <input type="number" name="seasons">
+			<p>Number of seasons:</p> 
+			<input type="number" name="seasons">
 			<br>
-			Number of episodes over all: <input type="number" name="episodes">
+			<p>Number of episodes over all:</p> 
+			<input type="number" name="episodes">
 			<br>
-			Summary: <input type="textarea" name="summary">
+			<p>Summary:</p> 
+			<input type="text" name="summary">
 			<br>
-			Genere: <input type="text" name="genre">
-			<br>
-			<input type="submit" name="addSeries" value="AddSeries" />
+			<p>Genere:</p> 
+			<input type="text" name="genre">
+			<br><br>
+			<input type="submit" name="addSeries" value="Add Series" />
 		</form>
 	</body>
 </html>

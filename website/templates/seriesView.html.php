@@ -18,12 +18,15 @@
 		<b>What's it about:</b>
 		<br>
 		<?=$data[0]['summary'] ?>
-		<br>
-		<b>Genre:</b> <?=$data[0]['genre'] ?>
-		<br>
-		<b>Number of seasons:</b> <?=$data[0]['seasons'] ?>
-		<br>
-		<b>Episodes in total:</b> <?=$data[0]['episodes'] ?>
+		<br><br>
+		<b>Genre:</b> <br>
+		<?=$data[0]['genre'] ?>
+		<br><br>
+		<b>Number of seasons:</b> <br>
+		<?=$data[0]['seasons'] ?>
+		<br><br>
+		<b>Episodes in total:</b> <br>
+		<?=$data[0]['episodes'] ?>
 		<br>
 		<!-- evtl verlinkung zu schauspielern -->
 	</body>

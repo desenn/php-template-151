@@ -13,11 +13,13 @@
 		?>
 		<h3>Search actors</h3>
 		<form method="POST">
-			<label>
-				Firstname:<input type="search" name="search_a_f"/>
-				Lastname:<input type="search" name="search_a_l"/>
-			</label>
-			<input type="submit" name="search" value="SearchActor" />
+			<p>Firstname:</p>
+			<input type="search" name="search_a_f"/>
+			<br>
+			<p>Lastname:</p>
+			<input type="search" name="search_a_l"/>
+			<br><br>
+			<input type="submit" name="search" value="Search Actor" />
 		</form>
 	</body>
 </html>

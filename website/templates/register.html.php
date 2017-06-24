@@ -11,14 +11,12 @@
 		<h3>Register</h3>
 		<form method="POST">
 			<p><?=  (isset($msg)) ? $msg: "" ?></p>
-			<label>
-				Email:
-				<input type="email" name="email" />
-			</label>
-			<label>
-				Passwort:
-				<input type="password" name="pw" />
-			</label>
+			<p>Email:</p>
+			<input type="email" name="email" />
+			<br>
+			<p>Password:</p>
+			<input type="password" name="pw" />
+			<br><br>
 			<input type="submit" name="register" value="Register" />
 		</form>
 	</body>

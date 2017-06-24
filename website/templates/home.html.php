@@ -11,8 +11,7 @@
 		<?php
 			require_once("../web/header.php");
 		?>
-		On this page you can search for series and actors.<br>
-		When you're registerd you can add series to your favourites.
-		<br>
+		<p>On this page you can search for series and actors.</p>
+		<p>When you're registerd you can add series to your favourites.</p>
 	</body>
 </html>

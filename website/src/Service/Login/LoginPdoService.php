@@ -46,6 +46,11 @@ class LoginPdoService implements LoginService
 		$stmt->bindValue(2, $username);
 		$stmt->execute();
 			
+		$stmt = $this->pdo->prepare("SELECT * FROM user WHERE email=? AND password=?");
+		$stmt->bindValue(1, $username);
+		$stmt->bindValue(2, $hash);
+		$stmt->execute();
+		
 		session_regenerate_id();
 		$user = $stmt->fetchObject();
 		$_SESSION["is_admin"] = $user->is_admin;

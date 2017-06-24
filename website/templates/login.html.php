@@ -10,14 +10,12 @@
 		?>
 		<h3>Login</h3>
 		<form method="POST">
-			<label>
-				Email:
-				<input type="email" name="email" value="<?= (isset($email)) ? $email: "" ?>"/>
-			</label>
-			<label>
-				Passwort:
-				<input type="password" name="pw" />
-			</label>
+			<p>Email:</p>
+			<input type="email" name="email" value="<?= (isset($email)) ? $email: "" ?>"/>
+			<br>
+			<p>Password:</p>
+			<input type="password" name="pw" />
+			<br><br>
 			<input type="submit" name="login" value="Login" />
 		</form>
 		<a href="/change-pw">Forgot password</a>

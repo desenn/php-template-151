@@ -5,7 +5,7 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="style.css">
-		<title>My Hello Site</title>
+		<title>Hello Site</title>
 	</head>
 	<body>
 	    <h3>Say Hello</h3>	
