@@ -9,7 +9,7 @@
 <?php
 require_once("../web/header.php");
 ?>
-	<h3>My Account</h3>
+	<h3>Hello <?=$_SESSION["email"] ?></h3>
 	<form method="POST">
 		
 	</form>

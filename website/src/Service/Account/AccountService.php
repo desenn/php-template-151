@@ -4,8 +4,8 @@ namespace desenn\Service\Account;
 
 interface AccountService
 {
-	public function showFavourites($name);
-	public function getFavorites($username);
+	public function showFavourites($id);
+	public function getFavorites($user_id);
 	public function addFavourites($id); 
 }
 

@@ -24,6 +24,7 @@ class LoginController
   }
 
   public function showLogin() {
+  	session_regenerate_id();
     echo $this->template->render("login.html.php");
   }
 

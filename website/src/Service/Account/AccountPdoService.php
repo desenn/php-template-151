@@ -10,7 +10,7 @@ class AccountPdoService implements AccountService
 		$this->pdo = $pdo;
 	}
 
-	public function showFavourites($name)
+	public function showFavourites($id)
 	{
 		$stmt = $this->pdo->prepare("INSERT INTO series WHERE name=?");
 		$stmt->bindValue(1, $name);
@@ -20,12 +20,12 @@ class AccountPdoService implements AccountService
 		return $series;
 	}
 
-	public function getFavorites($username)
+	public function getFavorites($user_id)
 	{
-		$stmt = $this->pdo->prepare("SELECT * FROM favourites WHERE fk_user=?");
-		$stmt->bindValue(1, $username);
+		$stmt = $this->pdo->prepare("SELECT id FROM favourites WHERE fk_user=?");
+		$stmt->bindValue(1, $user_id);
 		$stmt->execute();
-		$favourites = $stmt->fetchColumn();
+		$favourites = $stmt->fetchAll();
 	
 		return $favourites;
 	
