@@ -39,12 +39,14 @@ class SearchController
 
 	}*/
 	
-	public function SearchSeries(){
-		
+	public function SearchSeries(array $data){
+		$this->searchService->searchSeries($data['search_s']);
 	}
 	
-	public function SearchActor(){
-	
+	public function SearchActor(array $data){
+		$this->searchService->searchSeries($data['search_a_f'], $data['search_a_l']);
+		
+		
 	}
 
 }

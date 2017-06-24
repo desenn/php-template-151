@@ -26,7 +26,8 @@ require_once("../web/header.php");
 <h3>Search actors</h3>
 	<form method="POST">
 		<label>
-			<input type="search" name="search_a"/>
+			Firstname:<input type="search" name="search_a_f"/>
+			Lastname:<input type="search" name="search_a_l"/>
 		</label>
 		<input type="submit" name="search" value="SearchActor" />
 	

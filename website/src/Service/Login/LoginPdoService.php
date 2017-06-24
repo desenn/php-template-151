@@ -12,13 +12,15 @@ class LoginPdoService implements LoginService
 	
 	public function authenticate($username, $password)
 	{
-		$salt = $username;
+		$options = [
+				'salt' => $username . $username . $username . $username,
+		];
 		
-		$saltHash = hash('sha256', $password, $salt);
+		$hash = password_hash($password, PASSWORD_BCRYPT, $options);
 		
 		$stmt = $this->pdo->prepare("SELECT * FROM user WHERE email=? AND password=?");
 		$stmt->bindValue(1, $username);
-		$stmt->bindValue(2, $saltHash);
+		$stmt->bindValue(2, $hash);
 		$stmt->execute();
 		 
 		if(false){
@@ -39,12 +41,14 @@ class LoginPdoService implements LoginService
 	
 	public function updatePW($username, $password)
 	{
-		$salt = $username;
+		$options = [
+				'salt' => $username . $username . $username . $username,
+		];
 		
-		$saltHash = hash('sha256', $password, $salt);
+		$hash = password_hash($password, PASSWORD_BCRYPT, $options);
 		
 		$stmt = $this->pdo->prepare("UPDATE user SET password=? WHERE email=?");
-		$stmt->bindValue(1, $saltHash);
+		$stmt->bindValue(1, $hash);
 		$stmt->bindValue(2, $username);
 		$stmt->execute();
 			
@@ -53,4 +57,3 @@ class LoginPdoService implements LoginService
 	
 	}
 }
-?>

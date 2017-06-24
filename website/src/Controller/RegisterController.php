@@ -28,14 +28,15 @@ class RegisterController
 	}
 
 	public function Register(array $data) {
-		if(array_key_exists("email", $data)){
+		if( !array_key_exists("email", $data) || !array_key_exists("pw", $data)){
 			echo $this->template->render("register.html.php",[
-					"msg" => $data["EMail already taken"]
+					"msg" => "Ungültige Anfrage"
 			]);
+			return;
 		}
-		else {
-			$this->registerService->register($data['email'], $data['pw']);
-		}
+		
+		$this->registerService->register($data['email'], $data['pw']);
+		echo $this->template->render("home.html.php");
 
 	}
 }
