@@ -8,5 +8,3 @@ interface ActorService
 	public function getActor($id);
 	public function searchActor($lastname, $firstname);
 }
-
-?>

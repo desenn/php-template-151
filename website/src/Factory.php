@@ -15,6 +15,7 @@ class Factory{
 	public function __construct(array $config){
 		$this->config = $config;
 	}
+	
 	public function getTemplateEngine(){
 		return new SimpleTemplateEngine(__DIR__ . "/../templates/");
 	}
@@ -29,40 +30,35 @@ class Factory{
 		return new Controller\LoginController(
 				$this->getTemplateEngine(),
 				$this->getLoginService()
-				
-				);
+		);
 	}
 	
 	public function getRegisterController(){
 		return new Controller\RegisterController(
 				$this->getTemplateEngine(),
 				$this->getRegisterService()
-	
-				);
+		);
 	}
 	
 	public function getAccountController(){
 		return new Controller\AccountController(
 				$this->getTemplateEngine(),
 				$this->getAccountService()
-	
-				);
+		);
 	}
 	
 	public function getSeriesController(){
 		return new Controller\SeriesController(
 				$this->getTemplateEngine(),
 				$this->getSeriesService()
-	
-				);
+		);
 	}
 	
 	public function getActorController(){
 		return new Controller\ActorController(
 				$this->getTemplateEngine(),
 				$this->getActorService()
-	
-				);
+		);
 	}
 	
 	public function getPdo(){
@@ -79,7 +75,7 @@ class Factory{
 				\Swift_SmtpTransport::newInstance("smtp.gmail.com", 465, "ssl")
 				->setUsername("gibz.module.151@gmail.com")
 				->setPassword("Pe$6A+aprunu")
-				);
+		);
 	}
 	
 	public function getLoginService(){
@@ -103,5 +99,3 @@ class Factory{
 		return new Service\Actor\ActorPdoService($this->getPdo());
 	}
 }
-
-

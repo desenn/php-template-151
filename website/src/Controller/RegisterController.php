@@ -10,15 +10,15 @@ class RegisterController
 	/**
 	 * @var desenn\SimpleTemplateEngine Template engines to render output
 	 */
+	
 	private $template;
-
 	private $registerService;
 
 	/**
 	 * @param desenn\SimpleTemplateEngine
 	 */
-	public function __construct(SimpleTemplateEngine $template, RegisterService $registerService)
-	{
+	
+	public function __construct(SimpleTemplateEngine $template, RegisterService $registerService) {
 		$this->template = $template;
 		$this->registerService = $registerService;
 	}
@@ -30,14 +30,12 @@ class RegisterController
 	public function Register(array $data) {
 		if( !array_key_exists("email", $data) || !array_key_exists("pw", $data)){
 			echo $this->template->render("register.html.php",[
-					"msg" => "Ungültige Anfrage"
+					"msg" => "E-MAil or Password missing"
 			]);
 			return;
 		}
-		
 		$this->registerService->register($data['email'], $data['pw']);
 		echo $this->template->render("home.html.php");
-
 	}
 }
 

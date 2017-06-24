@@ -1,21 +1,19 @@
 <?php 
 
 namespace desenn\Service\Login;
+
 class LoginPdoService implements LoginService
 {
 	private $pdo;
 	
-	public function __construct(\PDO $pdo)
-	{
+	public function __construct(\PDO $pdo) {
 		$this->pdo = $pdo;
 	}
 	
-	public function authenticate($username, $password)
-	{
+	public function authenticate($username, $password) {
 		$options = [
 				'salt' => $username . $username . $username . $username,
 		];
-		
 		$hash = password_hash($password, PASSWORD_BCRYPT, $options);
 		
 		$stmt = $this->pdo->prepare("SELECT * FROM user WHERE email=? AND password=?");
@@ -25,11 +23,11 @@ class LoginPdoService implements LoginService
 		
 		if($stmt->rowCount() === 1){
 			session_regenerate_id();
-			$user = $stmt->fetchObject();
-			
+			$user = $stmt->fetchObject(); 
 			$_SESSION["is_admin"] = $user->is_admin;
 			$_SESSION["user_id"] = $user->id;
 			$_SESSION["email"] = $username;
+			
 			return true;
 		}
 		else{
@@ -37,12 +35,10 @@ class LoginPdoService implements LoginService
 		}
 	}
 	
-	public function updatePW($username, $password)
-	{
+	public function updatePW($username, $password) {
 		$options = [
 				'salt' => $username . $username . $username . $username,
 		];
-		
 		$hash = password_hash($password, PASSWORD_BCRYPT, $options);
 		
 		$stmt = $this->pdo->prepare("UPDATE user SET password=? WHERE email=?");
@@ -52,16 +48,8 @@ class LoginPdoService implements LoginService
 			
 		session_regenerate_id();
 		$user = $stmt->fetchObject();
-		
 		$_SESSION["is_admin"] = $user->is_admin;
-		
 		$_SESSION["user_id"] = $user->id;
 		$_SESSION["email"] = $username;
-		
-		
-		
-		
-		
-	
 	}
 }

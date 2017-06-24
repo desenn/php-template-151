@@ -1,42 +1,33 @@
 <?php
 
 namespace desenn\Service\Actor;
+
 class ActorPdoService implements ActorService
 {
 	private $pdo;
 
-	public function __construct(\PDO $pdo)
-	{
+	public function __construct(\PDO $pdo) {
 		$this->pdo = $pdo;
 	}
-
-
-
-	public function addActor($lastname, $firstname, $birthday)
-	{
+	
+	public function addActor($lastname, $firstname, $birthday) {
 		$stmt = $this->pdo->prepare("INSERT INTO actor (lastname, firstname, birthdate) VALUES (?, ?, ?)");
 		$stmt->bindValue(1, $lastname);
 		$stmt->bindValue(2, $firstname);
 		$stmt->bindValue(3, $birthday);
 		$stmt->execute();
-		
-
-
 	}
 	
-	public function getActor($id)
-	{
+	public function getActor($id) {
 		$stmt = $this->pdo->prepare("SELECT * FROM actor WHERE id=?");
 		$stmt->bindValue(1, $id);
 		$stmt->execute();
 		$actors = $stmt->fetchAll();
 	
 		return $actors;
-	
 	}
 	
-	public function searchActor($lastname, $firstname)
-	{
+	public function searchActor($lastname, $firstname) {
 		$stmt = $this->pdo->prepare("SELECT id FROM actor WHERE lastname=? AND firstname=?");
 		$stmt->bindValue(1, $lastname);
 		$stmt->bindValue(2, $firstname);
@@ -44,7 +35,5 @@ class ActorPdoService implements ActorService
 		$actors = $stmt->fetchAll();
 	
 		return $actors;
-		
-	
 	}
 }

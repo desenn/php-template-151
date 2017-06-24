@@ -10,15 +10,15 @@ class LoginController
   /**
    * @var desenn\SimpleTemplateEngine Template engines to render output
    */
+	
   private $template;
-  
   private $loginService;
   
   /**
    * @param desenn\SimpleTemplateEngine
    */
-  public function __construct(SimpleTemplateEngine $template, LoginService $loginService)
-  {
+  
+  public function __construct(SimpleTemplateEngine $template, LoginService $loginService) {
      $this->template = $template;
      $this->loginService = $loginService;
   }
@@ -33,8 +33,6 @@ class LoginController
   		$this->showLogin();
   		return;
   	}
-  	
-  	
   	
   	if($this->loginService->authenticate($data['email'], $data['pw'])){
   		header("Location: /");
@@ -59,15 +57,10 @@ class LoginController
   		$this->loginService->updatePW($data['email'], $data['pw']);
   		header("Location: /");
   	}
-  
-  
-  
-  
   }
   
   public function Logout(){
   	session_destroy();
   	header("Location: /");
   }
-  
 }

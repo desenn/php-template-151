@@ -8,5 +8,3 @@ interface AccountService
 	public function getFavorites($user_id);
 	public function addFavourites($id); 
 }
-
-?>

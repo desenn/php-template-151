@@ -6,5 +6,3 @@ interface RegisterService
 {
 	public function register($username, $password);
 }
-
-?>

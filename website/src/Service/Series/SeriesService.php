@@ -8,5 +8,3 @@ interface SeriesService
 	public function getSeries($id);
 	public function searchSeries($name);
 }
-
-?>

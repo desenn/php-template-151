@@ -1,17 +1,16 @@
 <?php
 
 namespace desenn\Service\Series;
+
 class SeriesPdoService implements SeriesService
 {
 	private $pdo;
 
-	public function __construct(\PDO $pdo)
-	{
+	public function __construct(\PDO $pdo) {
 		$this->pdo = $pdo;
 	}
 
-	public function addSeries($name, $seasons, $episodes, $summary, $genre)
-	{
+	public function addSeries($name, $seasons, $episodes, $summary, $genre) {
 		$stmt = $this->pdo->prepare("INSERT INTO series (name, seasons, episodes, summary, genre) VALUES (?, ?, ?, ?, ?)");
 		$stmt->bindValue(1, $name);
 		$stmt->bindValue(2, $seasons);
@@ -19,12 +18,9 @@ class SeriesPdoService implements SeriesService
 		$stmt->bindValue(4, $summary);
 		$stmt->bindValue(5, $genre);
 		$stmt->execute();
-		
-		
 	}
 
-	public function getSeries($id)
-	{
+	public function getSeries($id) {
 		$stmt = $this->pdo->prepare("SELECT * FROM series WHERE id=?");
 		$stmt->bindValue(1, $id);
 		$stmt->execute();
@@ -33,8 +29,7 @@ class SeriesPdoService implements SeriesService
 		return $series;
 	}
 	
-	public function searchSeries($name)
-	{
+	public function searchSeries($name) {
 		$stmt = $this->pdo->prepare("SELECT id FROM series WHERE name=?");
 		$stmt->bindValue(1, $name);
 		$stmt->execute();
