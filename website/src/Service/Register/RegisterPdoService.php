@@ -16,15 +16,24 @@ class RegisterPdoService implements RegisterService
 		];
 		$hash = password_hash($password, PASSWORD_BCRYPT, $options);
 		
-		$stmt = $this->pdo->prepare("INSERT INTO user (email, password) VALUES(?, ?)");
+		$stmt = $this->pdo->prepare("SELECT * FROM user WHERE email=?");
 		$stmt->bindValue(1, $username);
-		$stmt->bindValue(2, $hash);
 		$stmt->execute();
 		
-		session_regenerate_id();
-		$user = $stmt->fetchObject();
-		$_SESSION["is_admin"] = $user->is_admin;
-		$_SESSION["user_id"] = $user->id;
-		$_SESSION["email"] = $username;
+		if($stmt->rowCount() === 0){
+			$stmt = $this->pdo->prepare("INSERT INTO user (email, password) VALUES(?, ?)");
+			$stmt->bindValue(1, $username);
+			$stmt->bindValue(2, $hash);
+			$stmt->execute();
+			session_regenerate_id();
+			
+			
+			$stmt = $this->pdo->prepare("SELECT * FROM user WHERE email=?");
+			$stmt->bindValue(1, $username);
+			$user = $stmt->fetchObject();
+			$_SESSION["is_admin"] = $user->is_admin;
+			$_SESSION["user_id"] = $user->id;
+			$_SESSION["email"] = $username;
+		}
 	}
 }
