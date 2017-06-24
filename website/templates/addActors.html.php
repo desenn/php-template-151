@@ -19,6 +19,8 @@
 			<p>Birthdate:</p> 
 			<input type="text" placeholder="jjjj-mm-dd" name="birthday">
 			<br><br>
+			
+			<!-- <input type="hidden" name="token" value="<?=$_SESSION["token"] ?> /> -->
 			<input type="submit" name="addActors" value="Add Actor" />
 		</form>
 	</body>
