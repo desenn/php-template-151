@@ -36,24 +36,52 @@ switch($_SERVER["REQUEST_URI"]) {
 		break;
 		case "/change-pw":
 			$cnt = $factory->getLoginController();
-			$cnt->showForgotPW();
+			if($_SERVER['REQUEST_METHOD'] === 'GET'){
+				$cnt->showForgotPW();
+			}else{
+				$cnt->forgotPW($_POST);
+			}
+			
 			break;
-		case "/search":
-			$cnt = $factory->getSearchController();
-			$cnt->showSearch();
+		case "/search-series":
+			$cnt = $factory->getSeriesController();
+			if($_SERVER['REQUEST_METHOD'] === 'GET'){
+				$cnt->showSearch();
+			}else{
+				$cnt->SearchSeries($_POST);
+			}
+			
 			break;
+			case "/search-actor":
+				$cnt = $factory->getActorController();
+				if($_SERVER['REQUEST_METHOD'] === 'GET'){
+					$cnt->showSearch();
+				}else{
+					$cnt->SearchActor($_POST);
+				}
+					
+				break;
 		case "/account":
 			$cnt = $factory->getAccountController();
 			$cnt->showAccount();
 			break;
 		case "/add-series":
-			$cnt = $factory->getAddController();
-			$cnt->showAddSeries();
+			$cnt = $factory->getSeriesController();
+			if($_SERVER['REQUEST_METHOD'] === 'GET') {
+				$cnt->showAddSeries();
+			} else {
+				$cnt->AddSeries($_POST);
+			}
+			
 			break;
-			case "/add-actors":
-				$cnt = $factory->getAddController();
+		case "/add-actors":
+			$cnt = $factory->getActorController();
+			if($_SERVER['REQUEST_METHOD'] === 'GET') {
 				$cnt->showAddActors();
-				break;
+			} else {
+				$cnt->AddActors($_POST);
+			}
+			break;
 		default:
 			$matches = [];
 			if(preg_match("|^/hello/(.+)$|", $_SERVER["REQUEST_URI"], $matches)) {

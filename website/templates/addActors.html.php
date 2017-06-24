@@ -15,9 +15,9 @@ require_once("../web/header.php");
 		<br>
 		Firstname: <input type="text" name="firstname">
 		<br>
-		Birthdate: <input type="text" name="birthday">
+		Birthdate: <input type="date" name="birthday">
 		<br>
-		<input type="submit" name="login" value="Login" />
+		<input type="submit" name="addActors" value="AddActors" />
 	</form>
 </body>
 </html>

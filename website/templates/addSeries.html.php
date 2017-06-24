@@ -11,7 +11,17 @@ require_once("../web/header.php");
 ?>
 	<h3>Add Series</h3>
 	<form method="POST">
-		
+		Name: <input type="text" name="name">
+		<br>
+		Number of seasons: <input type="number" name="seasons">
+		<br>
+		Number of episodes over all: <input type="number" name="episodes">
+		<br>
+		Summary: <input type="textarea" name="summary">
+		<br>
+		Genere: <input type="text" name="genere">
+		<br>
+		<input type="submit" name="addSeries" value="AddSeries" />
 	</form>
 </body>
 </html>

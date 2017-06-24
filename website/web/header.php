@@ -5,7 +5,8 @@
 
     <div id="nav">
         <a class="nav_link" href="/">Home</a>
-        <a class="nav_link" href="/search">Search</a>
+        <a class="nav_link" href="/search-series">Search series</a>
+        <a class="nav_link" href="/search-actor">Search actor</a>
         <?php
         if(isset($_SESSION["email"])){
             if($_SESSION["admin"] === 1){
