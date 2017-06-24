@@ -30,5 +30,15 @@ class AccountPdoService implements AccountService
 		return $favourites;
 	
 	}
+	
+	public function getFavorites($id)
+	{
+		$stmt = $this->pdo->prepare("SELECT * FROM favourites WHERE fk_user=?");
+		$stmt->bindValue(1, $username);
+		$stmt->execute();
+		$favourites = $stmt->fetchColumn();
+	
+	
+	}
 }
 ?>

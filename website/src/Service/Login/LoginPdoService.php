@@ -31,6 +31,7 @@ class LoginPdoService implements LoginService
 		}
 		
 		if($stmt->rowCount() === 1){
+			session_regenerate_id();
 			$_SESSION["email"] = $username;
 			return true;
 		}
@@ -52,7 +53,7 @@ class LoginPdoService implements LoginService
 		$stmt->bindValue(2, $username);
 		$stmt->execute();
 			
-		
+		session_regenerate_id();
 			$_SESSION["email"] = $username;
 	
 	}

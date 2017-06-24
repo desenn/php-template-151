@@ -24,7 +24,8 @@ class RegisterPdoService implements RegisterService
 		$stmt->bindValue(1, $username);
 		$stmt->bindValue(2, $hash);
 		$stmt->execute();
-			
+		
+		session_regenerate_id();
 		$_SESSION["email"] = $username;
 
 	}

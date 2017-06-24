@@ -48,7 +48,12 @@ switch($_SERVER["REQUEST_URI"]) {
 			if($_SERVER['REQUEST_METHOD'] === 'GET'){
 				$cnt->showSearch();
 			}else{
-				$cnt->SearchSeries($_POST);
+				if($_POST['favourite'] === "Add to favourites"){
+					$cnt = $factory->getAccountController();
+				}else {
+					$cnt->SearchSeries($_POST);
+				}
+				
 			}
 			
 			break;

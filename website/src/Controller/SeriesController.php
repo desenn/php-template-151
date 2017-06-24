@@ -34,14 +34,14 @@ class SeriesController
 			$this->showAddSeries();
 			return;
 		}
-		$this->seriesService->addSeries($data['name'], $data['seasons'], $data['episodes'], $data['summary'], $data['genere']);
+		$this->seriesService->addSeries($data['name'], $data['seasons'], $data['episodes'], $data['summary'], $data['genre']);
 		echo $this->template->render("home.html.php");
 	}
 	
-	public function displaySeries($name) {
-		$this->seriesService->getSeries($name);
-		echo $this->template->render("addSeries.html.php",[
-				"msg" => $data["EMail already taken"]
+	public function displaySeries($id) {
+		$series = $this->seriesService->getSeries($id);
+		echo $this->template->render("seriesView.html.php",[
+				"data" => $series
 		]);
 	}
 	
@@ -62,7 +62,8 @@ class SeriesController
 	 }*/
 	
 	public function SearchSeries(array $data){
-		$this->seriesService->searchSeries($data['search_s']);
+		$series = $this->seriesService->searchSeries($data['search_s']);
+		$this->displaySeries($series[0]['id']);
 	}
 
 	
