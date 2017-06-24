@@ -17,7 +17,7 @@ class SeriesController
 	/**
 	 * @param desenn\SimpleTemplateEngine
 	 */
-	public function __construct(SimpleTemplateEngine $template, SeriesService $addService)
+	public function __construct(SimpleTemplateEngine $template, SeriesService $seriesService)
 	{
 		$this->template = $template;
 		$this->seriesService = $seriesService;
@@ -30,12 +30,11 @@ class SeriesController
 	
 
 	public function AddSeries(array $data) {
-		if(!array_key_exists("firstname", $data) OR !array_key_exists("lastname", $data)){
+		if(!array_key_exists("name", $data) OR !array_key_exists("seasons", $data) OR !array_key_exists("episodes", $data) OR !array_key_exists("summary", $data)){
 			$this->showAddSeries();
 			return;
 		}
-			
-		$this->addService->addSeries($data['name']);
+		$this->seriesService->addSeries($data['name'], $data['seasons'], $data['episodes'], $data['summary'], $data['genere']);
 		echo $this->template->render("home.html.php");
 	}
 	

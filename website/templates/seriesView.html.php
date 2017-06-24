@@ -10,6 +10,11 @@
 require_once("../web/header.php");
 ?>
 	<h3>Series</h3>
+	<div>
+		<form method="post">
+			<input type="submit" name="favourite" >
+		</form>
+	</div>
 	<form method="POST">
 	<!-- button zum favorisieren
 	evtl verlinkung zu schauspielern

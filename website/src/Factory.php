@@ -41,30 +41,6 @@ class Factory{
 				);
 	}
 	
-	public function getSearchController(){
-		return new Controller\SearchController(
-				$this->getTemplateEngine(),
-				$this->getSearchService()
-	
-				);
-	}
-	
-	public function getDataController(){
-		return new Controller\DataController(
-				$this->getTemplateEngine(),
-				$this->getDataService()
-	
-				);
-	}
-	
-	public function getAddController(){
-		return new Controller\AddController(
-				$this->getTemplateEngine(),
-				$this->getAddService()
-	
-				);
-	}
-	
 	public function getAccountController(){
 		return new Controller\AccountController(
 				$this->getTemplateEngine(),
@@ -113,18 +89,7 @@ class Factory{
 	public function getRegisterService(){
 		return new Service\Register\RegisterPdoService($this->getPdo());
 	}
-	
-	public function getSearchService(){
-		return new Service\Search\SearchPdoService($this->getPdo());
-	}
-	
-	public function getDataService(){
-		return new Service\Data\DataPdoService($this->getPdo());
-	}
-	
-	public function getAddService(){
-		return new Service\Add\AddPdoService($this->getPdo());
-	}
+
 	
 	public function getAccountService(){
 		return new Service\Account\AccountPdoService($this->getPdo());

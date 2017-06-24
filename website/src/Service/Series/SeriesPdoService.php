@@ -10,14 +10,17 @@ class SeriesPdoService implements SeriesService
 		$this->pdo = $pdo;
 	}
 
-	public function addSeries($name)
+	public function addSeries($name, $seasons, $episodes, $summary, $genere)
 	{
-		$stmt = $this->pdo->prepare("INSERT INTO series WHERE name=?");
+		$stmt = $this->pdo->prepare("INSERT INTO series (name, seasons, episodes, summary, genere) VALUES (?, ?, ?, ?, ?)");
 		$stmt->bindValue(1, $name);
+		$stmt->bindValue(2, $seasons);
+		$stmt->bindValue(3, $episodes);
+		$stmt->bindValue(4, $summary);
+		$stmt->bindValue(5, $genere);
 		$stmt->execute();
-		$series = $stmt->fetchColumn();
-
-		return $series;
+		
+		
 	}
 
 	public function getSeries($id)

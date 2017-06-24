@@ -21,7 +21,6 @@ class ActorPdoService implements ActorService
 		$stmt->execute();
 		
 
-		return $actors;
 
 	}
 	
